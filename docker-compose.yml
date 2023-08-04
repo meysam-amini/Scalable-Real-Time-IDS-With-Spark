@@ -13,9 +13,11 @@ services:
       MONGO_LOG_DIR: /dev/null
     volumes:
       - ./mongo_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
     ports:
       - "27017:27017"
-
+    networks:
+      - meysam-docker
 
 # because of lake of memory, I didn't use zoookeeper & kafka containers. If u do so, remember to set correct kafka settings on producer & consumer module(u should change the port to 29092)
 #  zookeeper:
@@ -45,12 +47,6 @@ services:
 #      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 #    networks:
 #      - meysam-docker
-
-
-volumes:
-#  postgres_data:
-#  pgadmin_data:
-  mongo_data:
 
 networks:
   meysam-docker:
