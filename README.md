@@ -9,13 +9,13 @@ Kafka cluster) from a remote location.
 
 ## Tech Stack
 
-JDK 11
-Spring Boot 2.5.2
-Apache Kafka 2.1
-Apache Spark 3.0.1 & Hadoop 2.7
-MongoDB 5
-Node 16
-Angular 12
+* JDK 11
+* Spring Boot 2.5.2
+* Apache Kafka 2.1
+* Apache Spark 3.0.1 & Hadoop 2.7
+* MongoDB 5
+* Node 16
+* Angular 12
 
 ## System Architecture
 
