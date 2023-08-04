@@ -1,0 +1,28 @@
+[
+
+  {
+
+
+    "url": "http://localhost:8080/modem1",
+
+    "name": "modem1"
+
+  }
+,
+  {
+
+
+    "url": "http://localhost:8080/modem2",
+
+    "name": "modem2"
+
+  },{
+
+
+  "url": "http://localhost:8080/modem3",
+
+  "name": "modem3"
+
+}
+
+]

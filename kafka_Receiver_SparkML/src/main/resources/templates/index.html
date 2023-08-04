@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+        <title>Simple markers</title>
+        <link rel="stylesheet" type="text/css"
+              href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <style>
+            html,
+            body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+
+    <div style="height: 100px"> </div>
+
+    <div id="result"></div>
+    
+    <!--<div class="container">
+    <table class="table table-striped table-hover table-bordered text-center">
+        <thead>
+        <tr>
+            <th style="width: 150px;text-align: center;">no</th>
+            <th style="width: 150px;text-align: center;">source</th>
+            <th style="width: 150px;text-align: center;">destination</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="f: ${flows}">
+
+            <td th:text="${f.no}">1</td>
+            <td th:text="${f.source}">127.33.33.3</td>
+            <td th:text="${f.destination}">255.555.555.555</td>
+        </tr>
+        </tbody>
+
+    </table>
+    </div>-->
+
+    <script>
+        var source;
+        var text = "";
+        var i=0;
+        if (typeof (EventSource) !== "undefined") {
+
+            source = new EventSource("/modem1",
+                {headers: "Content-Type: text/event-stream"});
+            source.onmessage = function (event) {
+
+
+
+                var data = JSON.parse(event.data);
+                // var v = Object.values(data);
+                // console.log(data);
+                addNetFlow(data.saddr,
+                    data.daddr,
+                    data.smac,
+                    data.dmac,
+                    data.probability,
+                    data.prediction
+                );
+
+            };
+        } else {
+            document.getElementById("result").innerHTML =
+                "Sorry, your browser does not support server-sent events...";
+        }
+        // data.no, data.source, data.destination
+
+        function addNetFlow(saddr,
+            daddr,
+            smac,
+            dmac,
+            probability,
+            prediction) {
+
+            //   var v = Object.values(data);
+             text += "SOURCE IP: "+saddr+" DESTINATION IP: "+daddr+"" +
+                 "SOURCE MAC ADDRESS: "+smac + " DESTINATION MAC ADDRESS: "+
+                 dmac+" PROBABILITY: "+probability+" PREDICTION: "+prediction+" "+"<br>";
+            document.getElementById("result").innerHTML = text+"<br>";
+
+
+        }
+
+
+    </script>
+
+    </body>
+</html>

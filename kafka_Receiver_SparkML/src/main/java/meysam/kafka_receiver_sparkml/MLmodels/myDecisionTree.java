@@ -1,0 +1,81 @@
+package meysam.kafka_receiver_sparkml.MLmodels;
+
+import org.apache.commons.lang.ArrayUtils;
+import org.apache.spark.ml.Pipeline;
+import org.apache.spark.ml.PipelineStage;
+import org.apache.spark.ml.classification.DecisionTreeClassifier;
+import org.apache.spark.ml.classification.DecisionTreeClassifier$;
+import org.apache.spark.ml.classification.RandomForestClassifier;
+import org.apache.spark.ml.feature.StringIndexer;
+import org.apache.spark.ml.feature.VectorAssembler;
+import org.apache.spark.ml.param.ParamMap;
+import org.apache.spark.ml.tuning.ParamGridBuilder;
+import org.apache.spark.sql.Dataset;
+import org.apache.spark.sql.Row;
+
+import java.io.IOException;
+
+public class myDecisionTree {
+
+    private String[] non_feature_cols;
+    private String[] cat_cols;
+    private String[] cat_cols_indexed;
+
+
+    public myDecisionTree(String[] cat_cols, String[] non_feature_cols) {
+        this.non_feature_cols = non_feature_cols;
+        this.cat_cols = cat_cols;
+        init_cat_cols_indexed();
+    }
+
+    private void init_cat_cols_indexed() {
+        cat_cols_indexed = new String[cat_cols.length];
+        for (int i = 0; i < cat_cols.length; i++) {
+            cat_cols_indexed[i] = cat_cols[i] + "_indexed";
+        }
+    }
+
+    public void Train(Dataset<Row> data) throws IOException {
+
+
+        StringIndexer indexer = new StringIndexer();
+        indexer.setHandleInvalid("skip");
+        indexer.setInputCols(cat_cols)
+                .setOutputCols(cat_cols_indexed);
+
+
+        String feature_cols[] = (String[]) ArrayUtils.addAll(
+                (data.drop(non_feature_cols)).columns()
+                , indexer.getOutputCols());
+
+
+
+        VectorAssembler vectorAssembler = new VectorAssembler()
+                .setInputCols(feature_cols)
+                .setOutputCol("features");
+
+        DecisionTreeClassifier DT = new DecisionTreeClassifier();
+//        DT.setImpurity("gini");
+//        DT.setMaxBins(300000);
+
+        Pipeline pipeline = new Pipeline()
+                .setStages(new PipelineStage[]{
+                       indexer, vectorAssembler, DT
+                });
+
+        //after cv I picked 10:
+        ParamMap[] paramGrid = new ParamGridBuilder()
+                .addGrid(DT.maxDepth(), new int[]{5})//8,10,12,14,16})//12 multi
+                .build();
+
+
+        myCrossValidator crossValidator=
+                new myCrossValidator(paramGrid,pipeline,
+                        2,"Decision_Tree",false);
+        crossValidator.crossValidate(data);
+
+
+        // Save the model on disk
+        //   pipelineModel.write().overwrite().save(MODEL_FOLDER_PATH);
+    }
+}

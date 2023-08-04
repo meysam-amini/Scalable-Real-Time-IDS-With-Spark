@@ -1,0 +1,10 @@
+/*::ng-deep.mat-tab-header {*/
+  /*position: fixed !important;*/
+  /*background: var(--background-header);*/
+  /*!*width: 100%;*!*/
+  /*padding-top: 10px;*/
+  /*z-index: 2;*/
+  /*left: 0;*/
+  /*right: 0;*/
+  /*box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2), 0 0px 10px 0 rgba(0, 0, 0, 0.19);*/
+/*}*/

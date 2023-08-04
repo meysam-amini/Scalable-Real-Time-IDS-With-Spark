@@ -1,0 +1,82 @@
+
+<mat-tab-group class="my-header" [selectedIndex]="3">
+
+  <mat-tab disabled >
+    <ng-template mat-tab-label >
+        <div class="header-title">
+        </div>
+    </ng-template>
+  </mat-tab>
+
+
+  <mat-tab>
+    <ng-template mat-tab-label >
+      <div class="menu-item-img menu-item-img-line-chart"></div>
+      <div class="menu-item-title">Line Charts</div>
+    </ng-template>
+    <H1 class="texts page-titles">Line Charts</H1>
+    <div *ngFor="let zone of ZONES; let i =index; " class="line-chart-card-view">
+      <H3 class="texts" style="margin-bottom: 40px">{{zone.name}}</H3>
+      <app-line-chart [subscriptionIndex]="i"></app-line-chart>
+    </div>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <div class="menu-item-img menu-item-img-radar-charts"></div>
+      <div class="menu-item-title">Radar Chart</div>
+    </ng-template>
+    <H1 class="texts page-titles">Radar Chart</H1>
+    <div class="radar-chart-card-view">
+      <app-radar-chart></app-radar-chart>
+    </div>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <div class="menu-item-img menu-item-img-data-table"></div>
+      <div class="menu-item-title">Data Tables</div>
+    </ng-template>
+    <H1 class="texts page-titles">Data Tables</H1>
+
+    <!--data tables tab group-->
+
+    <mat-tab-group>
+      <H1 class="texts page-titles">Data Tables</H1>
+
+      <mat-tab  *ngFor="let zone of ZONES; let i =index; ">
+        <ng-template mat-tab-label >
+
+          <div class="menu-item-title">{{zone.name}}</div>
+        </ng-template>
+          <app-data-table [subscriptionIndex]="i" ></app-data-table>
+      </mat-tab>
+    </mat-tab-group>
+    <!--end of data tables tab group-->
+
+
+  </mat-tab>
+
+
+  <mat-tab disabled>
+    <ng-template mat-tab-label>
+      <app-dialog-apis></app-dialog-apis>
+    </ng-template>
+  </mat-tab>
+
+
+  <mat-tab disabled>
+    <ng-template mat-tab-label>
+      <button  class="logo" (click)="toggleTheme()">M</button>
+    </ng-template>
+  </mat-tab>
+
+
+</mat-tab-group>
+
+
+
+
+
+
+

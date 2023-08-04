@@ -1,0 +1,147 @@
+********* http_dos ********
+LR: 10s - 20041
+RF: 10s - 17781
+DT: 5s - 18357
+MLPC : 10s - 19842
+
+
+******** scan ***********
+LR: 14s - 48657
+RF: 22s - 46053
+DT: 15s - 46556
+MLPC: 15s - 48412
+
+
+********** udp dos ********
+LR: 5m - 1048575
+RF: 10m   - 1048550
+DT:  5m - 1048553
+MLPC: 5m - 1048575
+@@@@@@@ Random_Forest @@@@@@@
+train_time: 108472
+Avg[0] : 0.7631576182104743
+##################### BEST MODEL PARAMS #####################
+bootstrap: Whether bootstrap samples are used when building trees. (default: true)
+cacheNodeIds: If false, the algorithm will pass trees to executors to match instances with nodes. If true, the algorithm will cache node IDs for each instance. Caching can speed up training of deeper trees. (default: false)
+checkpointInterval: set checkpoint interval (>= 1) or disable checkpoint (-1). E.g. 10 means that the cache will get checkpointed every 10 iterations. Note: this setting will be ignored if the checkpoint directory is not set in the SparkContext (default: 10)
+featureSubsetStrategy: The number of features to consider for splits at each tree node. Supported options: auto, all, onethird, sqrt, log2, (0.0-1.0], [1-n]. (default: auto)
+featuresCol: features column name (default: features)
+impurity: Criterion used for information gain calculation (case-insensitive). Supported options: entropy, gini (default: gini, current: gini)
+labelCol: label column name (default: label)
+leafCol: Leaf indices column name. Predicted leaf index of each instance in each tree by preorder (default: )
+maxBins: Max number of bins for discretizing continuous features.  Must be at least 2 and at least number of categories for any categorical feature. (default: 32)
+maxDepth: Maximum depth of the tree. (Nonnegative) E.g., depth 0 means 1 leaf node; depth 1 means 1 internal node + 2 leaf nodes. (default: 5, current: 10)
+maxMemoryInMB: Maximum memory in MB allocated to histogram aggregation. (default: 256)
+minInfoGain: Minimum information gain for a split to be considered at a tree node. (default: 0.0)
+minInstancesPerNode: Minimum number of instances each child must have after split.  If a split causes the left or right child to have fewer than minInstancesPerNode, the split will be discarded as invalid. Must be at least 1. (default: 1)
+minWeightFractionPerNode: Minimum fraction of the weighted sample count that each child must have after split. If a split causes the fraction of the total weight in the left or right child to be less than minWeightFractionPerNode, the split will be discarded as invalid. Should be in interval [0.0, 0.5) (default: 0.0)
+numTrees: Number of trees to train (at least 1) (default: 20, current: 100)
+predictionCol: prediction column name (default: prediction)
+probabilityCol: Column name for predicted class conditional probabilities. Note: Not all models output well-calibrated probability estimates! These probabilities should be treated as confidences, not precise probabilities (default: probability)
+rawPredictionCol: raw prediction (a.k.a. confidence) column name (default: rawPrediction)
+seed: random seed (default: 207336481)
+subsamplingRate: Fraction of the training data used for learning each decision tree, in range (0, 1]. (default: 1.0)
+thresholds: Thresholds in multi-class classification to adjust the probability of predicting each class. Array must have length equal to the number of classes, with values > 0 excepting that at most one value may be 0. The class with largest value p/t is predicted, where p is the original probability of that class and t is the class's threshold (undefined)
+weightCol: weight column name. If this is not set or empty, we treat all instance weights as 1.0 (undefined)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  ALL MULTICLASS METRICS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Accuracy = 0.7518886679920477
+Precision = 0.7511162608388899
+Recall = 0.7518886679920476
+F1 = 0.6982336277579149
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@@@@@@@ Random_Forest @@@@@@@
+train_time: 64315
+Avg[0] : 0.7666379584205993
+##################### BEST MODEL PARAMS #####################
+bootstrap: Whether bootstrap samples are used when building trees. (default: true)
+cacheNodeIds: If false, the algorithm will pass trees to executors to match instances with nodes. If true, the algorithm will cache node IDs for each instance. Caching can speed up training of deeper trees. (default: false)
+checkpointInterval: set checkpoint interval (>= 1) or disable checkpoint (-1). E.g. 10 means that the cache will get checkpointed every 10 iterations. Note: this setting will be ignored if the checkpoint directory is not set in the SparkContext (default: 10)
+featureSubsetStrategy: The number of features to consider for splits at each tree node. Supported options: auto, all, onethird, sqrt, log2, (0.0-1.0], [1-n]. (default: auto)
+featuresCol: features column name (default: features)
+impurity: Criterion used for information gain calculation (case-insensitive). Supported options: entropy, gini (default: gini, current: gini)
+labelCol: label column name (default: label)
+leafCol: Leaf indices column name. Predicted leaf index of each instance in each tree by preorder (default: )
+maxBins: Max number of bins for discretizing continuous features.  Must be at least 2 and at least number of categories for any categorical feature. (default: 32)
+maxDepth: Maximum depth of the tree. (Nonnegative) E.g., depth 0 means 1 leaf node; depth 1 means 1 internal node + 2 leaf nodes. (default: 5, current: 10)
+maxMemoryInMB: Maximum memory in MB allocated to histogram aggregation. (default: 256)
+minInfoGain: Minimum information gain for a split to be considered at a tree node. (default: 0.0)
+minInstancesPerNode: Minimum number of instances each child must have after split.  If a split causes the left or right child to have fewer than minInstancesPerNode, the split will be discarded as invalid. Must be at least 1. (default: 1)
+minWeightFractionPerNode: Minimum fraction of the weighted sample count that each child must have after split. If a split causes the fraction of the total weight in the left or right child to be less than minWeightFractionPerNode, the split will be discarded as invalid. Should be in interval [0.0, 0.5) (default: 0.0)
+numTrees: Number of trees to train (at least 1) (default: 20, current: 100)
+predictionCol: prediction column name (default: prediction)
+probabilityCol: Column name for predicted class conditional probabilities. Note: Not all models output well-calibrated probability estimates! These probabilities should be treated as confidences, not precise probabilities (default: probability)
+rawPredictionCol: raw prediction (a.k.a. confidence) column name (default: rawPrediction)
+seed: random seed (default: 207336481)
+subsamplingRate: Fraction of the training data used for learning each decision tree, in range (0, 1]. (default: 1.0)
+thresholds: Thresholds in multi-class classification to adjust the probability of predicting each class. Array must have length equal to the number of classes, with values > 0 excepting that at most one value may be 0. The class with largest value p/t is predicted, where p is the original probability of that class and t is the class's threshold (undefined)
+weightCol: weight column name. If this is not set or empty, we treat all instance weights as 1.0 (undefined)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  ALL MULTICLASS METRICS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Accuracy = 0.7565217391304347
+Precision = 0.7886903307194956
+Recall = 0.7565217391304346
+F1 = 0.7030642600566768
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@@@@@@@ Random_Forest @@@@@@@
+train_time: 112751
+Avg[0] : 0.7645595983258686
+##################### BEST MODEL PARAMS #####################
+bootstrap: Whether bootstrap samples are used when building trees. (default: true)
+cacheNodeIds: If false, the algorithm will pass trees to executors to match instances with nodes. If true, the algorithm will cache node IDs for each instance. Caching can speed up training of deeper trees. (default: false)
+checkpointInterval: set checkpoint interval (>= 1) or disable checkpoint (-1). E.g. 10 means that the cache will get checkpointed every 10 iterations. Note: this setting will be ignored if the checkpoint directory is not set in the SparkContext (default: 10)
+featureSubsetStrategy: The number of features to consider for splits at each tree node. Supported options: auto, all, onethird, sqrt, log2, (0.0-1.0], [1-n]. (default: auto)
+featuresCol: features column name (default: features)
+impurity: Criterion used for information gain calculation (case-insensitive). Supported options: entropy, gini (default: gini, current: gini)
+labelCol: label column name (default: label)
+leafCol: Leaf indices column name. Predicted leaf index of each instance in each tree by preorder (default: )
+maxBins: Max number of bins for discretizing continuous features.  Must be at least 2 and at least number of categories for any categorical feature. (default: 32)
+maxDepth: Maximum depth of the tree. (Nonnegative) E.g., depth 0 means 1 leaf node; depth 1 means 1 internal node + 2 leaf nodes. (default: 5, current: 10)
+maxMemoryInMB: Maximum memory in MB allocated to histogram aggregation. (default: 256)
+minInfoGain: Minimum information gain for a split to be considered at a tree node. (default: 0.0)
+minInstancesPerNode: Minimum number of instances each child must have after split.  If a split causes the left or right child to have fewer than minInstancesPerNode, the split will be discarded as invalid. Must be at least 1. (default: 1)
+minWeightFractionPerNode: Minimum fraction of the weighted sample count that each child must have after split. If a split causes the fraction of the total weight in the left or right child to be less than minWeightFractionPerNode, the split will be discarded as invalid. Should be in interval [0.0, 0.5) (default: 0.0)
+numTrees: Number of trees to train (at least 1) (default: 20, current: 100)
+predictionCol: prediction column name (default: prediction)
+probabilityCol: Column name for predicted class conditional probabilities. Note: Not all models output well-calibrated probability estimates! These probabilities should be treated as confidences, not precise probabilities (default: probability)
+rawPredictionCol: raw prediction (a.k.a. confidence) column name (default: rawPrediction)
+seed: random seed (default: 207336481)
+subsamplingRate: Fraction of the training data used for learning each decision tree, in range (0, 1]. (default: 1.0)
+thresholds: Thresholds in multi-class classification to adjust the probability of predicting each class. Array must have length equal to the number of classes, with values > 0 excepting that at most one value may be 0. The class with largest value p/t is predicted, where p is the original probability of that class and t is the class's threshold (undefined)
+weightCol: weight column name. If this is not set or empty, we treat all instance weights as 1.0 (undefined)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  ALL MULTICLASS METRICS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Accuracy = 0.7602459016393442
+Precision = 0.789421593184986
+Recall = 0.7602459016393441
+F1 = 0.708431409334629
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@@@@@@@ Random_Forest @@@@@@@
+train_time: 67623
+Avg[0] : 0.7673366749335402
+##################### BEST MODEL PARAMS #####################
+bootstrap: Whether bootstrap samples are used when building trees. (default: true)
+cacheNodeIds: If false, the algorithm will pass trees to executors to match instances with nodes. If true, the algorithm will cache node IDs for each instance. Caching can speed up training of deeper trees. (default: false)
+checkpointInterval: set checkpoint interval (>= 1) or disable checkpoint (-1). E.g. 10 means that the cache will get checkpointed every 10 iterations. Note: this setting will be ignored if the checkpoint directory is not set in the SparkContext (default: 10)
+featureSubsetStrategy: The number of features to consider for splits at each tree node. Supported options: auto, all, onethird, sqrt, log2, (0.0-1.0], [1-n]. (default: auto)
+featuresCol: features column name (default: features)
+impurity: Criterion used for information gain calculation (case-insensitive). Supported options: entropy, gini (default: gini, current: gini)
+labelCol: label column name (default: label)
+leafCol: Leaf indices column name. Predicted leaf index of each instance in each tree by preorder (default: )
+maxBins: Max number of bins for discretizing continuous features.  Must be at least 2 and at least number of categories for any categorical feature. (default: 32)
+maxDepth: Maximum depth of the tree. (Nonnegative) E.g., depth 0 means 1 leaf node; depth 1 means 1 internal node + 2 leaf nodes. (default: 5, current: 10)
+maxMemoryInMB: Maximum memory in MB allocated to histogram aggregation. (default: 256)
+minInfoGain: Minimum information gain for a split to be considered at a tree node. (default: 0.0)
+minInstancesPerNode: Minimum number of instances each child must have after split.  If a split causes the left or right child to have fewer than minInstancesPerNode, the split will be discarded as invalid. Must be at least 1. (default: 1)
+minWeightFractionPerNode: Minimum fraction of the weighted sample count that each child must have after split. If a split causes the fraction of the total weight in the left or right child to be less than minWeightFractionPerNode, the split will be discarded as invalid. Should be in interval [0.0, 0.5) (default: 0.0)
+numTrees: Number of trees to train (at least 1) (default: 20, current: 100)
+predictionCol: prediction column name (default: prediction)
+probabilityCol: Column name for predicted class conditional probabilities. Note: Not all models output well-calibrated probability estimates! These probabilities should be treated as confidences, not precise probabilities (default: probability)
+rawPredictionCol: raw prediction (a.k.a. confidence) column name (default: rawPrediction)
+seed: random seed (default: 207336481)
+subsamplingRate: Fraction of the training data used for learning each decision tree, in range (0, 1]. (default: 1.0)
+thresholds: Thresholds in multi-class classification to adjust the probability of predicting each class. Array must have length equal to the number of classes, with values > 0 excepting that at most one value may be 0. The class with largest value p/t is predicted, where p is the original probability of that class and t is the class's threshold (undefined)
+weightCol: weight column name. If this is not set or empty, we treat all instance weights as 1.0 (undefined)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  ALL MULTICLASS METRICS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Accuracy = 0.7617124394184168
+Precision = 0.7928162347933163
+Recall = 0.7617124394184168
+F1 = 0.7096362743751593
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,24 @@
+<header class="header-desktop">
+
+  <H1 class="header-title">IoT Network Monitoring Platform</H1>
+
+
+    <div class="header-menu">
+      <div class="header-menu-item" *ngFor="let page of pages">
+        <a class=" menu-item-img" routerLink="/{{page}}" routerLinkActive="active-link">
+          <img src="../../.././assets/img/{{page}}.png">
+        </a>
+      </div>
+
+
+      <app-dialog-apis class="header-menu-item"></app-dialog-apis>
+
+
+    </div>
+
+  <div class="logo-container">
+  <button  class="logo">
+  M
+  </button>
+  </div>
+</header>

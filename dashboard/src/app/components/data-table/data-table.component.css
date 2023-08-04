@@ -1,0 +1,26 @@
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: var(--foreground-default) !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: var(--foreground-default) !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: var(--foreground-default) !important;;
+}
+
+
+::ng-deep.mat-tab-header{
+
+}
+
+::ng-deep.my-mat-form-field.mat-ripple{
+  height: 100px;
+}
+
+

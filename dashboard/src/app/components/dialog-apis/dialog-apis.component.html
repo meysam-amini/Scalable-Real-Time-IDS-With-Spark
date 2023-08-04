@@ -1,0 +1,101 @@
+<ng-template #content let-modal>
+  <div class="modal-header dialog-apis">
+    <h4 class="modal-title w-100 dialog-apis-texts">All Monitoring Zones Data Apis</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body dialog-apis table-responsive ">
+    <table class="table table-bordered table-hover dialog-apis-texts" style="margin-top: 30px">
+
+      <!--<thead>-->
+
+      <!--<tr>-->
+
+      <!--<th>Name</th>-->
+
+      <!--<th>Url</th>-->
+      <!--<th></th>-->
+
+      <!--</tr>-->
+
+      <!--</thead>-->
+
+      <tbody>
+
+      <tr *ngFor="let api of allApis;let indexOfelement=index;trackById ">
+
+
+        <td>{{ api.name }}</td>
+
+        <td>{{ api.url }}</td>
+
+        <td>
+          <button class="dialog-apis-rem-btns" (click)="removeApi(indexOfelement)">
+            <img src="../../../assets/img/delete.png">
+          </button>
+        </td>
+      </tr>
+
+      </tbody>
+
+    </table>
+
+    <form>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-append">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div [formGroup]="APIsForm" (ngSubmit)="onFormSubmit()" class="modal-footer dialog-apis w-100"
+       style="padding-right: 40px">
+    <!--<div class="container" style="font-size: 8px;">-->
+    <mat-form-field appearance="outline" class="dialog-inputs col-sm-3">
+      <input matInput formControlName="name">
+
+      <mat-label ngClass="mat-label-valid" *ngIf="!name?.errors" class="w-100">Name ok</mat-label>
+
+      <mat-label *ngIf="name?.errors" [ngClass]="'error'">
+        <mat-label *ngIf="name?.errors?.required">
+          Enter Name
+        </mat-label>
+        <mat-label *ngIf="name?.errors?.pattern">
+          Name not valid
+        </mat-label>
+      </mat-label>
+
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="dialog-inputs col-sm-6">
+      <input matInput formControlName="url">
+
+      <mat-label ngClass="mat-label-valid" *ngIf="!url?.errors" class="w-100">Url ok</mat-label>
+
+      <mat-label *ngIf="url?.errors" [ngClass]="'error'">
+        <mat-label *ngIf="url?.errors?.required">
+          Enter Url
+        </mat-label>
+        <mat-label *ngIf="url?.errors?.pattern">
+          Url not valid
+        </mat-label>
+      </mat-label>
+
+    </mat-form-field>
+    <button class="btn btn-primary dialog-apis-footer-btns col-sm-1" (click)="onFormSubmit()">
+      Add
+    </button>
+    <button type="button" class="btn btn-danger dialog-apis-footer-btns col-sm-1" (click)="modal.close('works!')">
+      Start
+    </button>
+  </div>
+
+
+</ng-template>
+
+<button class="dialog-menu-item" (click)="openDialog(content)">
+  <!--<img src="../../.././assets/img/api_setting.png">-->
+  <div  class=" dialog-menu-item menu-item-img menu-item-img-api-setting"></div>
+  <div class="menu-item-title" style="line-height: 40px;font-weight:500">Api Setting</div>
+</button>
