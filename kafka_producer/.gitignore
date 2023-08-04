@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+##mvn files
+.mvn
+mvn*
