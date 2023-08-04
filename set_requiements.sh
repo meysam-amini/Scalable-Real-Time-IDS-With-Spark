@@ -1,6 +1,4 @@
-
 #install java 11
-
 #install scala 
 sudo apt install scala -y
 # download spark
