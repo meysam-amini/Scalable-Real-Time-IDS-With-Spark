@@ -22,6 +22,7 @@ NOTE: In real world, this system needs Argus as data source, but you can run "ka
 ## System Architecture
 ![Architecture](https://github.com/meysam-amini/Scalable-Real-Time-IDS-With-Spark/assets/59673699/cf5bf4f4-ff05-45df-8dca-71a549580a9a)
 
+
 ## Live Dashboard 
 The Dashboard is able to connect to multiple servers and get streaming data with SSE and show a good visualisation of monitored networks statuses. There is also a data table available for showing details about conversations statistics between participants.
 ![Screenshot from 2023-08-05 01-23-22](https://github.com/meysam-amini/Scalable-Real-Time-IDS-With-Spark/assets/59673699/9530a102-1189-41f5-a46c-338140c9b132)
